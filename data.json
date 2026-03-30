@@ -40,7 +40,7 @@
       "name": "Shadowrocket Modules",
       "desc": "A collection of modules for Shadowrocket, a popular iOS proxy tool. These modules enhance the functionality of Shadowrocket by providing additional features and capabilities.",
       "image": "/Assets/Tools/ShadowrocketModules.png",
-      "link": "MYth0712.github.io/ShadowrocketModules"
+      "link": "/ShadowrocketModules"
     }
   ]
 }
