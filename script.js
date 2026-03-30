@@ -19,8 +19,21 @@ function init(){
 
 function loadPortfolio(){
   portfolio.innerHTML="";
+
   data.portfolio.forEach(i=>{
-    portfolio.innerHTML+=`
+    
+    // SPECIAL CASE: Contact Me button
+    if(i.name === "Contact Me"){
+      portfolio.innerHTML += `
+        <a href="mailto:contactme@adham1.localplayer.dev?subject=Contact&body=Hello"
+           class="link-btn">
+          <img src="${i.image}">
+          <span>${i.name}</span>
+        </a>`;
+      return;
+    }
+
+    portfolio.innerHTML += `
       <a href="${i.link}" class="link-btn">
         <img src="${i.image}">
         <span>${i.name}</span>
