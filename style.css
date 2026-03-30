@@ -7,27 +7,22 @@
 
 html,body{
   height:100%;
-  overflow:hidden; /* PAGE DOES NOT SCROLL */
+  overflow-x:hidden; /* PAGE DOES NOT SCROLL */
+  background:#0b1220;
 }
 
 
 
 /* APP */
 .app{
-  height:100dvh;
+  min-height:100vh;
+  min-height:100dvh;
   padding-top:env(safe-area-inset-top);
   padding-bottom:env(safe-area-inset-bottom);
-  background:linear-gradient(-45deg,#0b1220,#111827,#0f172a,#1e293b);
-  background-size:400% 400%;
-  animation:gradientMove 6s ease infinite;
   color:white;
 }
 
-@keyframes gradientMove{
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
-}
+
 
 .container{
   height:100%;
