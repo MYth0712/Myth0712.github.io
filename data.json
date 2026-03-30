@@ -1,0 +1,41 @@
+{
+  "name": "Adham Elwan",
+  "avatar": "/Assets/user.png",
+
+  "portfolio": [
+    {
+      "name": "Instagram",
+      "link": "",
+      "image": "/Assets/Portfolio/instagram.png"
+    },
+    {
+      "name": "Facebook",
+      "link": "",
+      "image": "/Assets/Portfolio/facebook.png"
+    },
+    {
+    "name": "Snapchat",
+    "link": "",
+    "image": "/Assets/Portfolio/snapchat.png"
+    },
+    {
+      "name": "Twitter",
+      "link": "",
+      "image": "/Assets/Portfolio/twitter.png"
+    },
+    {
+      "name": "Github",
+      "link": "https://github.com/lonely0712",
+      "image": "/Assets/Portfolio/github.png"
+    }
+  ],
+
+  "tools": [
+    {
+      "name": "Shadowrocket Modules",
+      "desc": "A collection of modules for Shadowrocket, a popular iOS proxy tool. These modules enhance the functionality of Shadowrocket by providing additional features and capabilities.",
+      "image": "/Assets/Tools/shadowrocketModules.png",
+      "link": "adham.thedev.me/ShadowrocketModules"
+    }
+  ]
+}

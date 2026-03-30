@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Portfolio</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <div class="container">
+
+    <div class="top-area">
+      <div class="header" id="header">
+        <h2 id="nameTop"></h2>
+        <img id="avatarTop" class="avatar-small">
+      </div>
+
+      <div class="profile" id="profile">
+        <img id="avatar" class="avatar">
+        <h2 id="name">Adham Elwan </h2>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" onclick="showTab('portfolio', this)">Portfolio</button>
+      <button class="tab" onclick="showTab('tools', this)">Tools</button>
+      <div class="tab-indicator" id="indicator"></div>
+    </div>
+
+    <div class="content-wrapper">
+
+      <div id="portfolio" class="tab-content active scroll-area"></div>
+
+      <div id="tools" class="tab-content scroll-area">
+        <div class="search-wrap">
+          <input type="text" id="search" placeholder="Search tools..." oninput="searchTools()">
+        </div>
+        <div id="toolsList"></div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
