@@ -25,8 +25,13 @@
     },
     {
       "name": "Github",
-      "link": "https://github.com/lonely0712",
+      "link": "",
       "image": "/Assets/Portfolio/Github.png"
+    },
+    {
+      "name": "Contact Me",
+      "link": "",
+      "image": "/Assets/Portfolio/ContactMe.png"
     }
   ],
 
