@@ -1,51 +1,206 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Portfolio</title>
+<meta name="description" content="Adham Elwan — Developer & Creator Portfolio">
+<title>Adham Elwan — Portfolio</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="app">
-
-  <div class="container">
-
-    <div class="top-area">
-      <div class="header" id="header">
-        <h2 id="nameTop"></h2>
-        <img id="avatarTop" class="avatar-small">
-      </div>
-
-      <div class="profile" id="profile">
-        <img id="avatar" class="avatar">
-        <h2 id="name">Adham Elwan </h2>
-      </div>
-    </div>
-
-    <div class="tabs">
-      <button class="tab active" onclick="showTab('portfolio', this)">Portfolio</button>
-      <button class="tab" onclick="showTab('tools', this)">Tools</button>
-      <div class="tab-indicator" id="indicator"></div>
-    </div>
-
-    <div class="content-wrapper">
-
-      <div id="portfolio" class="tab-content active scroll-area"></div>
-
-      <div id="tools" class="tab-content scroll-area">
-        <div class="search-wrap">
-          <input type="text" id="search" placeholder="Search tools..." oninput="searchTools()">
-        </div>
-        <div id="toolsList"></div>
-      </div>
-
-    </div>
-
+<!-- Loader -->
+<div class="loader" id="loader">
+  <div class="loader-inner">
+    <div class="loader-ring ring-1"></div>
+    <div class="loader-ring ring-2"></div>
+    <div class="loader-ring ring-3"></div>
+    <span class="loader-text">AE</span>
   </div>
 </div>
 
+<!-- Scroll Progress -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Background Atmosphere -->
+<div class="atmosphere" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
+
+<!-- App -->
+<div class="app" id="app">
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-brand">
+      <img class="navbar-avatar" id="navAvatar" alt="">
+      <span class="navbar-name" id="navName"></span>
+    </div>
+    <div class="navbar-end">
+      <div class="clock" id="clock">
+        <time class="clock-time" id="clockTime"></time>
+        <span class="clock-date" id="clockDate"></span>
+      </div>
+      <button class="btn-icon theme-btn" id="themeBtn" aria-label="Toggle theme" title="Toggle theme (T)">
+        <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+        </svg>
+        <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+      <button class="btn-icon" id="shortcutsBtn" aria-label="Keyboard shortcuts" title="Shortcuts (?)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M8 12h.01M12 12h.01M16 12h.01M7 16h10"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main -->
+  <main class="main">
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div class="hero-avatar-wrap">
+        <div class="avatar-glow"></div>
+        <div class="avatar-ring"></div>
+        <img class="hero-avatar" id="heroAvatar" alt="Profile photo">
+      </div>
+      <h1 class="hero-name" id="heroName"></h1>
+      <p class="hero-tagline">Developer &amp; Creator</p>
+      <div class="socials-row" id="socialsRow"></div>
+    </section>
+
+    <!-- Tabs -->
+    <div class="tabs-wrapper">
+      <div class="tabs" role="tablist">
+        <button class="tab active" role="tab" aria-selected="true" data-tab="portfolio">Portfolio</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="tools">Tools</button>
+        <div class="tab-slider" id="tabSlider"></div>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+
+      <!-- Portfolio Panel -->
+      <section class="panel active" id="portfolio" role="tabpanel">
+        <div class="portfolio-list" id="portfolioList"></div>
+      </section>
+
+      <!-- Tools Panel -->
+      <section class="panel" id="tools" role="tabpanel">
+        <div class="search-wrap">
+          <div class="search-bar" id="searchBar">
+            <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+            </svg>
+            <input class="search-input" id="searchInput" type="text" placeholder="Search tools..." autocomplete="off" spellcheck="false">
+            <button class="search-clear hidden" id="searchClear" aria-label="Clear search">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 6L6 18M6 6l12 12"/>
+              </svg>
+            </button>
+          </div>
+          <span class="search-hint">Press <kbd>S</kbd> to search</span>
+        </div>
+        <div class="tools-grid" id="toolsGrid"></div>
+        <div class="empty-state hidden" id="emptyState">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.4">
+            <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M8 11h6"/>
+          </svg>
+          <p>No tools found</p>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Quotes Section -->
+    <section class="quotes-section" id="quotesSection">
+      <div class="quote-card">
+        <svg class="quote-icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor" opacity="0.15">
+          <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zm-14.017 0v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H0z"/>
+        </svg>
+        <p class="quote-text" id="quoteText"></p>
+        <span class="quote-author" id="quoteAuthor"></span>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contactSection">
+      <h2 class="section-title">Get in Touch</h2>
+      <p class="contact-text">Have a question or want to work together?</p>
+      <div class="contact-email-display" id="contactEmailDisplay"></div>
+      <div class="contact-actions">
+        <button class="contact-copy-btn" id="contactCopyBtn" title="Copy email address">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+          </svg>
+          <span>Copy Email</span>
+        </button>
+        <a class="contact-provider-btn" id="contactGmail" title="Open in Gmail">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
+          <span>Gmail</span>
+        </a>
+        <a class="contact-provider-btn" id="contactOutlook" title="Open in Outlook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 7.387v10.478c0 .23-.08.424-.238.576-.158.154-.352.23-.58.23h-8.547v-6.959l1.6 1.229c.101.063.222.094.362.094.139 0 .26-.031.363-.094l6.822-5.236c.079-.054.173-.081.28-.081.213 0 .32.12.32.363v-.6zm-.238-1.186c-.074.06-.818.637-2.236 1.73l-4.348 3.349-1.813-1.391V6.201h8.159c.228 0 .422.076.58.23.158.154.238.347.238.57v-.6l-.58.6zm-9.637-1v12.6H0V5.2l7.063 5.063L14.125 5.2zm-5.5 5.865L1.16 6.086l7.465 5.284 7.466-5.284-7.466 6.046z"/></svg>
+          <span>Outlook</span>
+        </a>
+        <a class="contact-provider-btn" id="contactYahoo" title="Open in Yahoo Mail">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 14.31l7.36-12.31h-4.2l-3.16 5.52L8.84 2H4.64l7.36 12.31v7.69h0V14.31z"/></svg>
+          <span>Yahoo</span>
+        </a>
+        <a class="contact-provider-btn" id="contactMailto" title="Default mail app">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+          </svg>
+          <span>Mail App</span>
+        </a>
+      </div>
+      <span class="contact-copied hidden" id="contactCopied">Copied!</span>
+    </section>
+
+  </main>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <!-- Shortcuts Modal -->
+  <div class="modal-overlay hidden" id="shortcutsModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Keyboard Shortcuts</h2>
+        <button class="btn-icon modal-close" id="modalClose" aria-label="Close">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="shortcut-row"><kbd>S</kbd><span>Focus search</span></div>
+        <div class="shortcut-row"><kbd>T</kbd><span>Toggle theme</span></div>
+        <div class="shortcut-row"><kbd>1</kbd><span>Portfolio tab</span></div>
+        <div class="shortcut-row"><kbd>2</kbd><span>Tools tab</span></div>
+        <div class="shortcut-row"><kbd>?</kbd><span>Show shortcuts</span></div>
+        <div class="shortcut-row"><kbd>Esc</kbd><span>Close / Unfocus</span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
 <script src="script.js"></script>
+<script src="tracking.js"></script>
 </body>
 </html>

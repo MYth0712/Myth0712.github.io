@@ -1,39 +1,28 @@
 {
   "name": "Adham Elwan",
   "avatar": "/Assets/User.png",
+  "email": "contactme@adham1.localplayer.dev",
+  "trackingUrl": "https://script.google.com/macros/s/AKfycbzquucaRJFWgpM6S4P2IsdNM1UJDF_brMqR1uXqCK3xvbksiZHVZERKww_b2rPnEiThJA/exec",
 
-  "portfolio": [
-    {
-      "name": "Instagram",
-      "link": "",
-      "image": "/Assets/Portfolio/Instagram.png"
-    },
-    {
-      "name": "Facebook",
-      "link": "",
-      "image": "/Assets/Portfolio/Facebook.png"
-    },
-    {
-    "name": "Snapchat",
-    "link": "",
-    "image": "/Assets/Portfolio/Snapchat.png"
-    },
-    {
-      "name": "Twitter",
-      "link": "",
-      "image": "/Assets/Portfolio/Twitter.png"
-    },
-    {
-      "name": "Github",
-      "link": "",
-      "image": "/Assets/Portfolio/Github.png"
-    },
-    {
-      "name": "Contact Me",
-      "link": "mailto:contactme@adham1.localplayer.dev",
-      "image": "/Assets/Portfolio/ContactMe.png"
-    }
+  "socials": [
+    { "platform": "GitHub", "url": "", "icon": "github" },
+    { "platform": "Discord", "url": "", "icon": "discord" },
+    { "platform": "Twitter", "url": "", "icon": "twitter" },
+    { "platform": "Instagram", "url": "", "icon": "instagram" },
+    { "platform": "Facebook", "url": "", "icon": "facebook" },
+    { "platform": "Snapchat", "url": "", "icon": "snapchat" },
+    { "platform": "Email", "url": "mailto:contactme@adham1.localplayer.dev", "icon": "email" }
   ],
+
+  "quotes": [
+    { "text": "The only way to do great work is to love what you do.", "author": "Steve Jobs" },
+    { "text": "Code is like humor. When you have to explain it, it's bad.", "author": "Cory House" },
+    { "text": "First, solve the problem. Then, write the code.", "author": "John Johnson" },
+    { "text": "Simplicity is the soul of efficiency.", "author": "Austin Freeman" },
+    { "text": "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.", "author": "Martin Fowler" }
+  ],
+
+  "portfolio": [],
 
   "tools": [
     {
